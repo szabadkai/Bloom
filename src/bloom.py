@@ -2,9 +2,9 @@ from collections.abc import Sequence
 
 
 class Bloom:
-    def __init__(self, *args):
-        self.filter = [False for _ in range(8)]
-        self.hash_functions = [lambda x: n * x % 8 for n in range(1, 5)]
+    def __init__(self, *args, size=8, hash_functions=None):
+        self.filter = [False for _ in range(size)]
+        self.hash_functions = hash_functions or [lambda x: n * x % 8 for n in range(1, 5)]
 
         if len(args) == 1 and isinstance(args[0], Sequence):
             for i in args[0]:

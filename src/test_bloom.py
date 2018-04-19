@@ -8,6 +8,8 @@ class TestBloom(TestCase):
         Bloom(1, 2, 3)
         Bloom(1, 2, 3, 4)
         Bloom([1, 2, 3, 4])
+        Bloom(1, 2, size=2, hash_functions=[lambda x: x % 2])
+        Bloom(1, 2, hash_functions=[lambda x: x % 2])
 
     def test_equals(self):
         self.assertEqual(Bloom(), Bloom())
